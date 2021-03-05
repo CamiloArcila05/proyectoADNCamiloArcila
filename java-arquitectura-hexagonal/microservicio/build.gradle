@@ -82,3 +82,7 @@ bootJar {
     baseName = 'proyectoADN'
     version =  version
 }
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '6.0.1'
+}
