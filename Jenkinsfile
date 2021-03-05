@@ -34,10 +34,24 @@ pipeline {
       }
     }
     
+      stage('Permisos gradlew') {
+      steps{
+        echo "------------>Permisos gradlew<------------"
+        sh 'chmod +x ./gradlew'
+      }
+    }
+
+    stage('Clean') {
+      steps{
+        echo "------------>Clean<------------"
+        sh './gradlew --b ./java-arquitectura-hexagonal/microservicio/build.gradle clean'
+      }
+    }
+    
     stage('Compile & Unit Tests') {
       steps{
         echo "------------>Unit Tests<------------"
-
+        sh './gradlew --b ./java-arquitectura-hexagonal/microservicio/build.gradle test'
       }
     }
 
@@ -53,7 +67,7 @@ sh "${tool name: 'SonarScanner', type:'hudson.plugins.sonar.SonarRunnerInstallat
     stage('Build') {
       steps {
         echo "------------>Build<------------"
-        sh 'gradle --b ./java-arquitectura-hexagonal/microservicio/build.gradle build -x test'
+        sh './gradlew --b ./java-arquitectura-hexagonal/microservicio/build.gradle build -x test'
       }
     }  
   }
