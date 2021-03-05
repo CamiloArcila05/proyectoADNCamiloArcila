@@ -1,0 +1,24 @@
+# Información del proyecto
+sonar.projectKey=co.com.ceiba.adn:ADN-camilo.arcila
+sonar.projectName=Ceiba-ADN(camilo.arcila)
+#Datos de Configuracion
+sonar.sourceEncoding=UTF-8
+
+####### CODE SOURCE PRESENTATION #######
+#Datos de los fuentes y binarios
+sonar.sources=.
+sonar.java.binaries=adn/build/intermediates/javac/debug/classes
+
+
+#### TEST ADN ####
+#Datos de los fuentes y binarios de los tests
+sonar.tests=adn/src/test/java
+sonar.java.test.binaries=adn/build/intermediates/javac/debugUnitTest/classes
+sonar.java.test.libraries=/home/ic/.gradle/caches/modules-2/files-2.1/**/*.jar
+
+#Envío de reportes de JUnit y Jacoco como resultado de la tarea test
+sonar.java.coveragePlugin=jacoco
+sonar.jacoco.reportPaths=adn/build/jacoco/jacocoTestReport.xml
+sonar.junit.reportPaths=adn/build/test-results/testDebugUnitTest
+#Language
+sonar.language=java
