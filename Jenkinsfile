@@ -13,7 +13,6 @@ pipeline {
   //Una sección que define las herramientas “preinstaladas” en Jenkins
   tools {
     jdk 'JDK8_Centos' //Preinstalada en la Configuración del Master
-    gradle 'Gradle4.5_Centos' //Preinstalada en la Configuración del Master
   }
 
   //Aquí comienzan los “items” del Pipeline
@@ -54,7 +53,7 @@ sh "${tool name: 'SonarScanner', type:'hudson.plugins.sonar.SonarRunnerInstallat
     stage('Build') {
       steps {
         echo "------------>Build<------------"
-        sh './gradlew --b ./java-arquitectura-hexagonal/microservicio/build.gradle test'
+        sh 'gradle --b ./java-arquitectura-hexagonal/microservicio/build.gradle build -x test'
       }
     }  
   }
