@@ -41,17 +41,10 @@ pipeline {
       }
     }
 
-    stage('Clean') {
-      steps{
-        echo "------------>Clean<------------"
-        sh './gradlew --b ./java-arquitectura-hexagonal/microservicio/build.gradle clean'
-      }
-    }
-    
+ 
     stage('Compile & Unit Tests') {
       steps{
         echo "------------>Unit Tests<------------"
-        sh './gradlew --b ./java-arquitectura-hexagonal/microservicio/build.gradle test'
       }
     }
 
