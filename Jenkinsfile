@@ -60,7 +60,7 @@ sh "${tool name: 'SonarScanner', type:'hudson.plugins.sonar.SonarRunnerInstallat
     stage('Build') {
       steps {
         echo "------------>Build<------------"
-        sh './gradle --b ./java-arquitectura-hexagonal/microservicio/build.gradle build -x test'
+        sh './gradlew --b ./java-arquitectura-hexagonal/microservicio/build.gradle build -x test'
       }
     }  
   }
