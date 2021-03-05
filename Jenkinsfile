@@ -37,7 +37,7 @@ pipeline {
       stage('Permisos gradlew') {
       steps{
         echo "------------>Permisos gradlew<------------"
-        sh 'chmod +x ./gradlew'
+        sh 'chmod +x ./java-arquitectura-hexagonal/microservicio/gradlew'
       }
     }
 
