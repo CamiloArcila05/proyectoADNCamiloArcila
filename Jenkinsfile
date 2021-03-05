@@ -21,6 +21,17 @@ pipeline {
     stage('Checkout') {
       steps{
         echo "------------>Checkout<------------"
+        checkout([
+                $class: 'GitSCM', 
+                branches: [[name: '*/master']], 
+                doGenerateSubmoduleConfigurations: false, 
+                extensions: [], 
+                gitTool: 'Default', 
+                submoduleCfg: [], 
+                userRemoteConfigs: [[
+                credentialsId: 'GitHub_camiloarcila05', 
+                url:'https://github.com/CamiloArcila05/proyectoADNCamiloArcila']]])
+
       }
     }
     
@@ -46,7 +57,9 @@ sh "${tool name: 'SonarScanner', type:'hudson.plugins.sonar.SonarRunnerInstallat
       }
     }  
   }
-
+  
+  
+  
   post {
     always {
       echo 'This will always run'
@@ -66,3 +79,4 @@ sh "${tool name: 'SonarScanner', type:'hudson.plugins.sonar.SonarRunnerInstallat
     }
   }
 }
+
