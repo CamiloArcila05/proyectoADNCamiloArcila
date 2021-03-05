@@ -54,7 +54,7 @@ sh "${tool name: 'SonarScanner', type:'hudson.plugins.sonar.SonarRunnerInstallat
     stage('Build') {
       steps {
         echo "------------>Build<------------"
-        sh 'gradle --b ./build.gradle build -x test'
+        sh './gradlew clean build'
       }
     }  
   }
